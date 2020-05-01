@@ -75,6 +75,8 @@ RUN apt install wget
 
 # these travis scripts include NJOY, DAGMC, MOAB
 
+ENV DAGMC_DIR=$HOME/DAGMC/
+
 RUN cd /opt/openmc && \
    ./tools/ci/travis-install.sh
 
