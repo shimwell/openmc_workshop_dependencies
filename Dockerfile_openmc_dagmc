@@ -101,7 +101,7 @@ RUN cd $HOME && \
     make -j8 && make -j8 install  && \
     cmake ../moab -DBUILD_SHARED_LIBS=OFF && \
     make -j8 install && \
-    rm -rf $HOME/MOAB/moab $HOME/MOAB/build && \
+    rm -rf $HOME/MOAB/moab $HOME/MOAB/build
 
 # DAGMC Install
 RUN cd $HOME && \
