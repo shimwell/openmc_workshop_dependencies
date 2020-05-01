@@ -119,13 +119,13 @@ RUN cd /opt/openmc && \
 
 
 # Install Python API in editable mode
-pip install -e .[test,vtk]
+RUN pip install -e .[test,vtk]
 
 # For coverage testing of the C++ source files
-pip install cpp-coveralls
+RUN pip install cpp-coveralls
 
 # For coverage testing of the Python source files
-pip install coveralls
+RUN pip install coveralls
 
 
 # this script downloads the nndc (ENDF) nuclear data which is done in a later docker image
