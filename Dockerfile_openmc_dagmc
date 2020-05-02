@@ -77,8 +77,8 @@ RUN apt install wget
 
 
 
-RUN cd /opt/openmc && \
-    ./tools/ci/travis-install-njoy.sh
+# RUN cd /opt/openmc && \
+#    ./tools/ci/travis-install-njoy.sh
 
 #ENV DAGMC_DIR=$HOME/DAGMC/
 # MOAB Variables
