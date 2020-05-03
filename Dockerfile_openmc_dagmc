@@ -113,28 +113,21 @@ RUN cd $HOME && \
     make -j8 install && \
     rm -rf $HOME/DAGMC/dagmc $HOME/DAGMC/build
 
+RUN pip install --upgrade numpy
 
+# install openmc
 RUN cd /opt/openmc && \
-   ./tools/ci/travis-install.sh
+   mkdir build && cd build && \
+   cmake -Ddagmc=ON -DDAGMC_ROOT=$DAGMC_INSTALL_DIR -DHDF5_PREFER_PARALLEL=OFF .. && \
+   make -j8  && \
+   make install  && \
+   cd /opt/openmc/  && \
+   pip install .
 
 
-# Install Python API in editable mode
-RUN pip install -e .[test,vtk]
-
-# For coverage testing of the C++ source files
-RUN pip install cpp-coveralls
-
-# For coverage testing of the Python source files
-RUN pip install coveralls
 
 
-# this script downloads the nndc (ENDF) nuclear data which is done in a later docker image
-# RUN cd /opt/openmc && \
-   #./tools/ci/travis-before-script.sh 
 
-# this script perform tests
-# RUN cd /opt/openmc && \
- #    ./tools/ci/travis-script.sh
 
 RUN git clone https://github.com/openmc-dev/plotter.git
 
