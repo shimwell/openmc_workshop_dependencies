@@ -13,6 +13,8 @@ RUN pip3 install inference-tools
 RUN pip3 install neutronics_material_maker
 RUN pip3 install adaptive
 
+RUN apt-get -y update
+
 # dependancies used in the workshop
 RUN apt-get --yes install imagemagick
 RUN apt-get --yes install hdf5-tools
