@@ -55,3 +55,5 @@ RUN cp /usr/bin/python3 /usr/bin/python
 
 
 RUN pip install parametric_plasma_source
+RUN pip install pytest
+RUN pip install pyvtk
