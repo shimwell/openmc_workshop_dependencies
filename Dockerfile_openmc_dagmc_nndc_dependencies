@@ -53,7 +53,8 @@ RUN ln -s /usr/lib/freecad/Mod /usr/lib/freecad-python3/Mod
 RUN rm /usr/bin/python
 RUN cp /usr/bin/python3 /usr/bin/python
 
-
 RUN pip install parametric_plasma_source
 RUN pip install pytest
 RUN pip install pyvtk
+
+RUN mkdir /my_openmc_workshop
