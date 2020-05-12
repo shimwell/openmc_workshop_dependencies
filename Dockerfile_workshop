@@ -5,4 +5,6 @@ FROM openmcworkshop/openmc_workshop_dependencies:openmc_dagmc_nndc_dependencies
 
 RUN git clone https://github.com/ukaea/openmc_workshop
 
+RUN mkdir /my_openmc_workshop
+
 WORKDIR /openmc_workshop
