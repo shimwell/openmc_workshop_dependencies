@@ -57,5 +57,7 @@ RUN pip install parametric_plasma_source
 RUN pip install pytest
 RUN pip install pyvtk
 RUN pip install vtk
+RUN pip3 install jupyter
+RUN pip3 install jupyterlab
 
 RUN mkdir /my_openmc_workshop
