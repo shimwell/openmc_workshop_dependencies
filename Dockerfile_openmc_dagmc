@@ -33,6 +33,11 @@ RUN apt-get --yes install libhdf5-mpich-dev
 RUN apt-get --yes install libblas-dev
 RUN apt-get --yes install liblapack-dev
 
+# needed to allow NETCDF on MOAB which helps with tet meshes in OpenMC
+RUN apt-get --yes install libnetcdf-dev
+RUN apt-get --yes install libnetcdf13
+
+
 RUN apt-get -y install sudo #  needed as the install NJOY script has a sudo make install command
 RUN apt-get -y install git
 RUN apt-get -y install cmake
@@ -97,7 +102,7 @@ RUN cd $HOME && \
     cd MOAB && \
     git clone -b $MOAB_BRANCH $MOAB_REPO  && \
     mkdir build && cd build && \
-    cmake ../moab -DENABLE_HDF5=ON -DBUILD_SHARED_LIBS=ON -DCMAKE_INSTALL_PREFIX=$MOAB_INSTALL_DIR && \
+    cmake ../moab -DENABLE_HDF5=ON -DENABLE_NETCDF=ON -DBUILD_SHARED_LIBS=ON -DCMAKE_INSTALL_PREFIX=$MOAB_INSTALL_DIR && \
     make -j8 && make -j8 install  && \
     cmake ../moab -DBUILD_SHARED_LIBS=OFF && \
     make -j8 install && \
