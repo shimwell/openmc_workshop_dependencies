@@ -120,12 +120,6 @@ RUN git clone https://github.com/openmc-dev/data.git
 # run script that converts ACE data to hdf5 data
 RUN python3 data/convert_nndc71.py --cleanup
 
-ENV OPENMC_CROSS_SECTIONS=/nndc-b7.1-hdf5/cross_sections.xml
-USER $NB_USER
-RUN git clone https://github.com/ukaea/openmc_workshop
-
-
-
 # Python libraries used in the workshop
 RUN pip install plotly
 RUN pip install tqdm
@@ -136,5 +130,14 @@ RUN pip install inference-tools
 RUN pip install neutronics_material_maker
 RUN pip install adaptive
 
+
+
+ENV OPENMC_CROSS_SECTIONS=/nndc-b7.1-hdf5/cross_sections.xml
+USER $NB_USER
+RUN git clone https://github.com/ukaea/openmc_workshop
+RUN cd openmc_workshop && git checkout jupter_docker2
+
+
 USER root
 RUN ln -s /home/jovyan/nndc-b7.1-hdf5 /nndc-b7.1-hdf5
+
