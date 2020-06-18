@@ -20,7 +20,7 @@ RUN apt-get --yes install liblapack-dev
 
 # needed to allow NETCDF on MOAB which helps with tet meshes in OpenMC
 RUN apt-get --yes install libnetcdf-dev
-RUN apt-get --yes install libnetcdf13
+# RUN apt-get --yes install libnetcdf13
 
 
 RUN apt-get -y install sudo #  needed as the install NJOY script has a sudo make install command
