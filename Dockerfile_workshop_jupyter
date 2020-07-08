@@ -118,8 +118,8 @@ RUN pip install ghalton==0.6.1
 RUN pip install noisyopt
 RUN pip install scikit-optimize
 RUN pip install inference-tools
-RUN pip install neutronics_material_maker
 RUN pip install adaptive
+RUN pip install neutronics_material_maker
 
 
 
